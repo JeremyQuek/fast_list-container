@@ -3,7 +3,7 @@
 
 # Super Fast List
 
-Inspired by HFT order book implementations, I wanted to recreated a basic version of a container in c++ that supports super fast operations for adding and removal to test the concepts of use in those order books. This list supporst an average of up 140 million operations / second.
+Inspired by HFT order book implementations, I wanted to recreated a basic version of a container in c++ that supports super fast operations for adding and removal to test the concepts of use in those order books. This list supporst an average of up **41 million ops/s.**
   
 <img width="900" height="598" alt="Screenshot 2026-03-06 at 1 49 01 AM" src="https://github.com/user-attachments/assets/b0fb7cc0-1f85-4be4-a28e-9e74af1be0f3" />
 
