@@ -42,10 +42,10 @@ Could support adding to random O(1)
 
 | Operation | std::list | fast_list | Speedup |
 |-----------|----------:|----------:|--------:|
-| Add       | 34.9MM     | 274.4M     | **5.7x** |
-| Remove    | 15.2M      | 84.0M     | **2.4x** |
-| Consume   | 17.2M     | 162.0M     | **1.8x** |
-| Mixed     | 18.4M      | 139.0M     | **2.6x** |
+| Add       | 34.9M     | 274.4M     | **7.8x** |
+| Remove    | 15.2M      | 84.0M     | **5.53x** |
+| Consume   | 17.2M     | 162.0M     | **9.42x** |
+| Mixed     | 18.4M      | 139.0M     | **7.55x** |
 
 > `std::list` does **not** support O(1) random access removal — requires O(n) walk to find order by ID.  
 > `fast_list` supports O(1) removal by `order_id` via `orderMap[]` direct lookup.
