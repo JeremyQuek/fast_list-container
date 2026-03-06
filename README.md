@@ -3,7 +3,7 @@
 
 # Super Fast List
 
-Inspired by HFT order book implementations, I wanted to recreated a basic version of a container in c++ that supports super fast operations for adding and removal to test the concepts of use in those order books. This list supporst an average of up 25 million operations / second.
+Inspired by HFT order book implementations, I wanted to recreated a basic version of a container in c++ that supports super fast operations for adding and removal to test the concepts of use in those order books. This list supporst an average of up 140 million operations / second.
   
 <img width="900" height="598" alt="Screenshot 2026-03-06 at 1 49 01 AM" src="https://github.com/user-attachments/assets/b0fb7cc0-1f85-4be4-a28e-9e74af1be0f3" />
 
@@ -42,10 +42,10 @@ Could support adding to random O(1)
 
 | Operation | std::list | fast_list | Speedup |
 |-----------|----------:|----------:|--------:|
-| Add       | 12.7M     | 72.0M     | **5.7x** |
-| Remove    | 8.2M      | 19.8M     | **2.4x** |
-| Consume   | 12.2M     | 22.3M     | **1.8x** |
-| Mixed     | 7.1M      | 18.7M     | **2.6x** |
+| Add       | 34.9MM     | 274.4M     | **5.7x** |
+| Remove    | 15.2M      | 84.0M     | **2.4x** |
+| Consume   | 17.2M     | 162.0M     | **1.8x** |
+| Mixed     | 18.4M      | 139.0M     | **2.6x** |
 
 > `std::list` does **not** support O(1) random access removal — requires O(n) walk to find order by ID.  
 > `fast_list` supports O(1) removal by `order_id` via `orderMap[]` direct lookup.
@@ -54,10 +54,12 @@ Could support adding to random O(1)
 
 | Operation       | N       | Time     | ns/op |
 |-----------------|--------:|---------:|------:|
-| Add             | 1000000 | 13.88 ms | 14 ns |
-| Remove (every other) | 500000 | 25.21 ms | 50 ns |
-| Consume         | 500000  | 22.43 ms | 45 ns |
-| Mixed           | 1000000 | 53.53 ms | 54 ns |
+| Add             | 1000000 | 3.64 ms | 4 ns |
+| Remove (every other) | 500000 | 5.95 ms | 12 ns |
+| Consume         | 500000  | 3.09 ms | 6 ns |
+| Mixed           | 1000000 | 7.18 ms | 7 ns |
 
 
 <br/>
+
+
