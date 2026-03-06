@@ -40,7 +40,7 @@ OrderBook::OrderBook(size_t max_order_size) {
 
 OrderBook::~OrderBook() {
     free(buffer_start);
-    delete[] orderMap;
+    free(orderMap);
 }
 
 OrderBook::Order* OrderBook::resolveAddress(int id) {
