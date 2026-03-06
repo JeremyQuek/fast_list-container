@@ -14,7 +14,8 @@
 <br/>
 
 As seen, the fast list outperforms std::list on every benchmark by a non-trivial factor.  <br>
-**Randomed mixed operations (first test)** is the probably most realistic test. Lack of branch prediction support likely slows down the operations. <br/>
+**Randomed mixed operations (first test)** is the probably most realistic test. Slowdown is probably due to a collapse in branch prediction support, simulating real
+hot path conditions.<br/>
 
 **However, fast list supports both random access and removal** while std::list doesnt  <br>
 
