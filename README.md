@@ -28,14 +28,28 @@ hot path conditions.<br/>
 
 <br/>
 
-## List Operations and Features: 
+## List Design 
+It is a memory contiguous doubly linked linkedlist. 
+List structs are 16 bytes each, which is cache friendly. <br>
+An array map is used, with indices as ids to prevent hash overhead: <br>
+- The $$ith$$ index of the array = $$ith$$ memory slot
+
+
+<br/>
+<div align="center"> 
+  Illustration of Fast List 
+
+<img width="900" height="776" alt="Screenshot 2026-03-09 at 4 58 58 PM" src="https://github.com/user-attachments/assets/915d3097-ac76-4f2c-a5f6-878ac659b452" />
+</div>
+<br/>
+
+**Features**
 - Add to back O(1)
 - Remove from front & back O(1)
 - Access and remove at random O(1)
 
-In theory:
-Could support adding to front O(1)
-Could support adding to random O(1)
+In theory: Could support adding to front O(1),  Adding to random O(1)
+
 
 <br/>
 
