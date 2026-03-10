@@ -54,13 +54,13 @@ In theory: Could support adding to front O(1),  Adding to random O(1)
 <br/>
 
 ## Key Optimizations:
-1) **Cache locality**. Preallocates enough buffer for up to 1 million nodes contiguously leveraging cache locality in cpu access.
-2) **Cache line buffering**. List node structs are designed to be 16 bytes, so each cache line fetches 4 structs 
-3) **Prefault pages**. Pages are prefaulted upon allocation, ensure even faster access time as we can leverage TLB.
-4) **Linked list**. Actual list is implemented using memory contiguous free lists with next and prev. Supports O(1) random, front and back removal and access.
-5) **Boolean ID Array**. Uses an array of boolean fails, each array indexes uses pointer arithmetic on memory to obtain the ith list node after the buffer base. 
-6) **Free list**. Dynamically append remove nodes to a free vector, allows operations to reuse memory as much as possible while keeping FIFO order.
-7) **Integer** rather than pointers for next/prev. Squeezes even less bytes into a node struct.
+1) **Memory Continguity**. Preallocates enough buffer for up to 1 million nodes contiguously leveraging cache locality in cpu access.
+2) **Cache Friendliness**. List node structs are designed to be 16 bytes, so each cache line fetches 4 structs
+3) **Memory Alignment**. Aligned alloc is used to ensure the buffer is 64 byte aligned, perfect for cache fetch
+4) **Prefaulted Pages**. Pages are prefaulted upon allocation, ensure even faster access time as we can leverage TLB.
+5) **Doubly Linked list**. Allows O(1) insertion and delete
+6) **Node ID Array**. Uses an array of booleans, each index points to an ith slot using only pointer math, no hashing
+7) **Free list**. Dynamically append remove nodes to a free vector, allowing to memory reuse while keeping FIFO order.
 
 
 <br/>
