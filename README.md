@@ -92,3 +92,17 @@ Hardware - Apple M2 Pro, Sonoma 14.6.1, 16GB Ram
 <br/>
 
 
+## Run It Yourself
+Clone the repo and navigate to root dir
+
+```
+make
+```
+
+This will compile benchmark.cpp along with fast_list.cpp, you can run `./benchmark ` to print out the results from the benchmakr.
+To run the google benchmark, you will need to compile it with the google library. 
+
+```
+
+```
+
